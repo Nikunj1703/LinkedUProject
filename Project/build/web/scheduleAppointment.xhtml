@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head >
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <h:outputStylesheet name="bootstrap/css/datepicker.css" />
+        <script src="resources/bootstrap/js/bootstrap-datepicker.js"></script>
+        
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+       
+        
+        <style type="text/css">
+                .navbar{
+                        margin-top: 20px;
+                }
+        </style>
+
+        <script>
+            $(function () {
+                $(".datepicker").datepicker({
+                    changeMonth: true,
+                    changeYear: true
+                });
+            });
+        </script>
+        <title>Linked U - Schedule An Appointment</title>
+    </h:head>
+    <h:body>
+        
+        
+        <h:form>
+<div class="container">
+    <nav role="navigation" class="navbar navbar-inverse">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="linkedUHome.xhtml" class="navbar-brand">LinkedU</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="LoginGood.xhtml">Profile</a></li>
+                
+                <li> <h:commandLink value="Update Profile" action="#{updateController.retrieveProfilePart1()}"/></li>
+                
+                
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">More <b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><h:commandLink id="appointment" value="Schedule An Appointment" action="scheduleAppointment.xhtml"/></li>
+                         <li> <h:commandLink id="apply" value="Proceed to Apply" action="applyToUniversity.xhtml"/></li>
+                         <li> <h:commandLink id="search" value="Search the University" action="universitySearchPage.xhtml"/></li>
+                        <li class="divider"></li>
+                        <li><h:commandLink id="searchStudent" value="Search Students" action="searchStudent.xhtml"/></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li> <h:commandLink value="Logout" action="#{logoutBean.logout()}" /></li>
+            </ul>
+        </div>
+        
+    </nav>
+</div>
+            </h:form>
+        
+        
+        
+        
+        
+        <h:form>
+            <div class="container">
+                <h1 align="center">Schedule An Appointment</h1>
+                <div class="form-group">
+                    <label for="sel1">Select University:</label>
+                    <h:selectOneMenu class="form-control" id="sel1" value="#{scheduleController.scheduleBean.university}">
+                        <f:selectItem itemLabel="Illinois State University" itemValue="Illinois State University"/>
+                        <f:selectItem itemLabel="Massachusetts Institute of Technology" itemValue="Massachusetts Institute of Technology"/>
+                        <f:selectItem itemLabel="University of Illinois, Urbana Champaign" itemValue="University of Illinois, Urbana Champaign"/>
+                        <f:selectItem itemLabel="Purdue University" itemValue="Purdue University"/>
+                    </h:selectOneMenu>
+                    </div>
+                <br/><br/>
+
+               <div class="well">
+                    <label for="datepicker">Date</label>
+                    <h:inputText id="date1" class="datepicker" value="#{scheduleController.scheduleBean.date}"/>
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    <span class="add-on">
+                        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                        </i>
+                    </span>
+                </div>
+                <br/><br/>
+                
+                <div class="form-group">
+                    <label for="radioSlot">Select Time Slot:</label>
+                    <h:panelGrid id="radioGrid" columns="1">
+                        <h:selectOneMenu  id="radioSlot" value="#{scheduleController.scheduleBean.slot}">
+                        <f:selectItem  itemLabel="12:30 P.M. - 1:00 P.M." itemValue="12:30 P.M. - 1:00 P.M."/><br/>
+                        <f:selectItem itemLabel="1:00 P.M. - 1:30 P.M." itemValue="1:00 P.M. - 1:30 P.M."/>
+                        <f:selectItem itemLabel="1:30 P.M. - 2:00 P.M." itemValue="1:30 P.M. - 2:00 P.M."/>
+                        <f:selectItem itemLabel="2:00 P.M. - 2:30 P.M." itemValue="2:00 P.M. - 2:30 P.M."/>
+                        <f:selectItem  itemLabel="2:30 P.M. - 3:00 P.M." itemValue="2:30 P.M. - 3:00 P.M."/>
+                    </h:selectOneMenu>
+                        </h:panelGrid>
+                </div>
+
+                <h:commandButton value="Check Availability" class="btn btn-success btn-lg" >
+                    <f:ajax event="action" execute="date1 radioSlot" render="out"/>
+                </h:commandButton>
+                <h:outputText value="#{scheduleController.availabilityMessage}" id="out"/>
+                <br/><br/><br/>
+                <h:commandButton value="Book Slot" class="btn btn-primary btn-lg" action="#{scheduleController.bookSlot()}"></h:commandButton>
+            </div>
+
+        </h:form>
+
+
+       
+
+       
+
+    </h:body>
+</html>
+

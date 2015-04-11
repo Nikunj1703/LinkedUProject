@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    
+    
+    <h:head>
+        <title>JSF 2.0 101</title>
+    </h:head>
+    <f:event listener="#{updateController.isLogin}" type="preRenderView" />
+    
+    <h:body>
+        <h2>Financial Consultation Request</h2><br/>
+        <h:form>
+            First Name: <h:inputText id="fNameID" value="#{updateController.signUpBean.firstName}" required="true">
+                 <f:validateLength minimum="2" maximum="25" />
+            </h:inputText> <br/><br/>
+            
+            Last Name: <h:inputText id="lNameID" value="#{updateController.signUpBean.lastName}" required="true">
+            </h:inputText> <br/><br/>
+            
+            UserID: <h:inputText id="userID" value="#{updateController.signUpBean.userID}" required="true" disabled = "true">
+            </h:inputText> <br/><br/>
+            
+            Password: <h:inputSecret redisplay="false" id="uPassID" value="#{updateController.signUpBean.password1}"  required="true">
+            </h:inputSecret> <br/><br/>
+            
+            Confirm Password: <h:inputSecret redisplay="false" id="cPassID" value="#{updateController.signUpBean.password2}"  required="true">
+            </h:inputSecret> <br/><br/>
+            
+            Email: <h:inputText id="emailID" value="#{updateController.signUpBean.email}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            Security Question: <h:inputText id="QuestionID" value="#{updateController.signUpBean.question}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            Security Answer: <h:inputText id="AnswerId" value="#{updateController.signUpBean.answer}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <h:commandButton id="submitID" value="Update" action="#{updateController.updateThis()}"/>
+            <h:outputText value="#{updateController.updateStatus}" id="updateStatus"/>
+        </h:form>
+
+    </h:body>
+</html>
+

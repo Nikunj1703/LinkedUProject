@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+
+        <h3>Student Listing</h3>
+
+        <h:form>
+            <ui:repeat value="#{universityController.universityList}" var="info">                    
+            <h:commandLink action="#{universityController.searchItem()}">
+                #{info.universityName}
+                <f:setPropertyActionListener target="#{universityController.universityBean.universityName}" value="#{info.universityName}"/>
+            </h:commandLink>
+            <br/>
+            <br/><br/>
+        </ui:repeat>
+         </h:form>
+        <h:form>
+            <!-- <h:commandButton id="details" value="Details" action="studentSearchResult.xhtml"/>-->
+            <h:commandButton id="back" value="Back" action="searchStudent.xhtml"/>
+            <h:commandLink id="details" value="Details" action="studentSearchResult.xhtml"/>
+        </h:form>
+    </h:body>
+</html>
+

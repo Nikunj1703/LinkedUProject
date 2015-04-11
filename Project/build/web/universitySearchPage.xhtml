@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title align="center">Search University</title>
+        <h1 align="center">Search University</h1>
+    </h:head>
+    <h:body>
+        <h:form>
+            
+            
+            
+            College <h:selectManyListbox
+                id="college"
+                value="#{universityController.universityBean.universityNameArray}">
+                <f:selectItem id="all" itemLabel="All" itemValue="All" />
+                <f:selectItem id="isu" itemLabel="Illinois State University" itemValue="Illinois State University" />
+                <f:selectItem id="mit" itemLabel="Massachusetts Institute of Technology" itemValue="Massachusetts Institute of Technology" />
+                 <f:selectItem id="uic" itemLabel="University of Illinois, Chicago" itemValue="University of Illinois, Chicago" />
+                <f:selectItem id="purdue" itemLabel="PURDUE" itemValue="Purdue" />
+            </h:selectManyListbox><br/><br/>
+            
+            State: <h:selectOneMenu
+                id="state"
+                value="#{universityController.universityBean.state}">
+                <f:selectItem id="sAll" itemLabel="All" itemValue="All" />
+                <f:selectItem id="illinois" itemLabel="Illinois" itemValue="Illinois" />
+                <f:selectItem id="boston" itemLabel="Boston" itemValue="Boston" />
+            </h:selectOneMenu><br/><br/>
+            
+            
+            
+             Qualifying Exam: <h:selectOneMenu
+                id="exam"
+                value="#{universityController.universityBean.exam}">
+                <f:selectItem id="act" itemLabel="ACT" itemValue="ACTscore" />
+                <f:selectItem id="sat" itemLabel="SAT" itemValue="SATscore" />
+            </h:selectOneMenu><br/><br/>
+            
+            Minimum Score<h:inputText id="minScore" value="#{universityController.universityBean.minScore}"  pt:placeholder="All">
+            </h:inputText>
+            
+            
+          <br/>
+          
+            Acceptance Rate<h:selectOneRadio value="#{universityController.universityBean.accRate}">
+                <f:selectItem itemValue="LT30" itemLabel="Less than 30%" />
+                <f:selectItem itemValue="LT50" itemLabel="31% to 50%" />
+                <f:selectItem itemValue="LT80" itemLabel="51% to 80%" />
+                <f:selectItem itemValue="MT80" itemLabel="More than 80%" />
+            </h:selectOneRadio>	
+            
+            
+            Scholarships Rate<h:selectOneRadio value="#{universityController.universityBean.schRate}">
+                <f:selectItem itemValue="LT30" itemLabel="Less than 30%" />
+                <f:selectItem itemValue="LT50" itemLabel="31% to 50%" />
+                <f:selectItem itemValue="LT80" itemLabel="51% to 80%" />
+                <f:selectItem itemValue="MT80" itemLabel="More than 80%" />
+            </h:selectOneRadio>	
+            
+           
+           <h:commandButton id="submitID" value="Search" action="#{universityController.searchUniversity()}"/>
+            
+        </h:form>
+
+    </h:body>
+</html>
+

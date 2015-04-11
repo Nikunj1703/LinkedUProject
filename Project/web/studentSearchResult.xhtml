@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Student Table</title>
+    </h:head>
+    <h:body>
+        <h2 align="center">Student Record</h2>
+        <h:dataTable id="studentTable" value="#{studentController.studentList}" var="aRow"
+                     border="1" cellpadding="2" cellspacing="0">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="First Name"/>
+                </f:facet>
+                <h:outputText value="#{aRow.firstName}"/>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Last Name"/>
+                </f:facet>
+                <h:outputText value="#{aRow.lastName}"/>
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email"/>
+                </f:facet>
+                <h:outputText value="#{aRow.email}"/>
+            </h:column>
+          
+           
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Contact Number"/>
+                </f:facet>
+                <h:outputText value="#{aRow.contactNo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Address Line-1"/>
+                </f:facet>
+                <h:outputText value="#{aRow.address1}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Address Line-2"/>
+                </f:facet>
+                <h:outputText value="#{aRow.address2}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="City"/>
+                </f:facet>
+                <h:outputText value="#{aRow.city}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="State"/>
+                </f:facet>
+                <h:outputText value="#{aRow.state}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Country"/>
+                </f:facet>
+                <h:outputText value="#{aRow.country}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Zip Code"/>
+                </f:facet>
+                <h:outputText value="#{aRow.zip}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="School Name"/>
+                </f:facet>
+                <h:outputText value="#{aRow.schoolName}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="GPA"/>
+                </f:facet>
+                <h:outputText value="#{aRow.gpa}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Exam"/>
+                </f:facet>
+                <h:outputText value="#{aRow.exam}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Score"/>
+                </f:facet>
+                <h:outputText value="#{aRow.score}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                   <h:outputText value="Target School"/>
+                </f:facet>
+                 <c:forEach var="i" begin="0" end="1" step="1">
+                     <h:outputText value="#{aRow.targetSchool[i]}"/><br/>
+                    <h:outputText value=" "/>
+                </c:forEach>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Major"/>
+                </f:facet>
+                <c:forEach var="i" begin="0" end="1" step="1">
+                    <h:outputText value="#{aRow.major[i]}"/>
+                    <h:outputText value=" "/>
+                </c:forEach>
+            </h:column>
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Extra Curricular"/>
+                </f:facet>
+                <h:outputText value="#{aRow.extraC}"/>
+            </h:column>
+             <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Awards"/>
+                </f:facet>
+                <h:outputText value="#{aRow.awards}"/>
+            </h:column>
+             <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Sports"/>
+                </f:facet>
+                <h:outputText value="#{aRow.sports}"/>
+            </h:column>
+            
+            
+            
+           
+        </h:dataTable>
+        <h:form><br/>
+        <h:commandButton id="back" value="Back" action="newDisplay.xhtml"/>
+        </h:form>
+        
+    </h:body>
+</html>
+

@@ -1,0 +1,163 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <h:head>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB_ttEV1PRDKcN_0LP0LV5X7_vsbnd2B3c" type="text/javascript"></script>
+
+        <script type="text/javascript">
+
+
+            function initialize() {
+                var myLatlng = new google.maps.LatLng(40.4240, -86.9290);
+                var mapOptions = {
+                    zoom: 15,
+                    center: myLatlng
+                };
+                var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: myLatlng,
+                    map: map,
+                    title: 'Purdue University'
+                });
+                marker.setMap(map);
+            }
+            google.maps.event.addDomListener(window, 'load', initialize);
+        </script>  
+        <style>
+            #additionaldetails{
+                 height: 100%;
+                padding: 20px;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                background-color: #fff;
+            }
+            #map-outer{
+                height: 440px;
+                padding: 20px;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                background-color: #fff;
+
+
+            }
+            #map_canvas{
+                height: 400px;
+            }
+
+        </style>
+
+    </h:head>   
+
+    <h:body>
+
+
+        <h:form>
+            <div class="container">
+                <nav role="navigation" class="navbar navbar-inverse">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="linkedUHome.xhtml" class="navbar-brand">LinkedU</a>
+                    </div>
+                    <!-- Collection of nav links, forms, and other content for toggling -->
+                    <div id="navbarCollapse" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li class="disabled"><a href="#">Profile</a></li>
+
+                            <li class="disabled"> <h:commandLink value="Update Profile"  action="#{updateController.retrieveProfilePart1()}"/></li>
+
+
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#">More <b class="caret"></b></a>
+                                <ul role="menu" class="dropdown-menu">
+                                    <li class="disabled"><a href="#" >Schedule an appointment</a></li>
+
+                                    <li> <h:commandLink id="search" value="Search the University" action="universitySearchPage.xhtml"/></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#">Search Students</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav navbar-right">
+                            <li> <h:commandLink value="Logout" action="#{logoutBean.logout()}" /></li>
+                        </ul>
+                    </div>
+
+                </nav>
+            </div>
+        </h:form>
+        <div class="container">
+        <div class="container">
+            <div class="row">
+                <div id="map-outer" class="col-md-12">
+                    <div class="row">
+                    <div id="address" class="col-md-4">
+                        <div class="pull-left">
+                            <h2>Purdue University</h2>
+                            <h4>610 Purdue Mall, West Lafayette<br/>
+                                Zip Code:- IN 47907<br/>
+                                Contact - (765) 494-4600</h4>
+                            <img src="resources/images/PU_Logo.png" class="center-block" width ="180" height="120"/>
+                            </div> 
+                    </div>
+                        <div id="map_canvas" class="col-md-8 pull-right"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+            <div class="container"> 
+                <div id="additionaldetails">
+                <h:form>
+                    <h2>Enter Additional Details</h2>
+                    Statement of Purpose:<h:inputTextarea  class="inline-block" rows="15" cols="80"/>
+                    <br/><br/>  
+                    </h:form>
+                    Upload Resume:<br/> <h:outputText value="#{fileUploadMBean.message}" rendered="#{!empty fileUploadMBean.message}"></h:outputText>
+                    <h:form prependId="false" enctype="multipart/form-data"><br/>
+                        
+                        <h:panelGrid>
+                            <h:inputFile value="#{fileUploadMBean.file1}"></h:inputFile>
+                            
+                            <h:commandButton action="#{fileUploadMBean.uploadFile()}" value="Upload"></h:commandButton>
+
+                            <br/>
+                            <h:commandButton value="Download" action="#{fileUploadMBean.downloadFile()}" />
+                        </h:panelGrid>
+                    </h:form>
+                    <br/>
+                    <h:form>
+                        Please enter the email address of 3 references:<br/>
+                        1. <h:inputText id="recomm1" value="#{universityController.universityBean.recomm1}"/><br/>
+                        2. <h:inputText id="recomm2" value="#{universityController.universityBean.recomm2}"/><br/>
+                        3. <h:inputText id="recomm3" value="#{universityController.universityBean.recomm3}"/><br/><br/>
+
+                        <h:commandButton id="submit" value="Send" action="#{universityController.sendMail()}"/>
+
+                        <!--<h:commandButton id="applyID" value="Apply" action="applySuccess.xhtml"/>-->
+                        <h:commandButton id="applyID" value="Apply" action="#{universityController.saveDetailsInDb()}"/>
+                    </h:form>
+                
+
+            </div>
+                </div>
+</div>
+    </h:body>
+
+</html>

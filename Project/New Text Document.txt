@@ -1,0 +1,4 @@
+create table projectUsers.CreateLoginDB (
+  USERID 			VARCHAR(25),
+  Password                      VARCHAR(25)
+);

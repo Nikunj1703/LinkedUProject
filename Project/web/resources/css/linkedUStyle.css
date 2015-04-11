@@ -1,0 +1,145 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 10, 2014, 8:30:59 PM
+    Author     : nratnap
+*/
+
+.entireHome{
+    border: solid;
+    width: 1300px;
+    height: 800px;
+    margin: auto;
+    background-color: white;
+    border: solid; 
+}
+.entireHome1{
+    border: solid;
+    width: 1300px;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+    //padding: 25px;
+    }
+body{
+    background-color: #F6E3CE;
+    //background-color: #FF8000;
+}
+
+.heading{
+    width: 1300px;
+    height: 160px;
+    margin: auto;
+    background-color: #FF8000;
+}
+
+.entireHomePurdue{
+    border: solid;
+    width: 1300px;
+    height: 800px;
+    margin: auto;
+    background-color: white;
+}
+
+span{
+    font-size: 90pt;
+    color:white;
+    float: left;
+}
+.bodyApply{
+    
+    //margin: auto;
+    //width: 1300px;
+    //height:100%;
+    padding: 25px;
+    //font-size: 14pt; 
+    //border-style: ridge;
+    //border-color: #FF8000;
+    //border-width: 4pt;
+}
+
+.sectionStudent{
+    float: left;
+    margin-left: 2cm;
+    width: 11cm;
+    height:11cm;
+    padding: 25px;
+    font-size: 14pt; 
+    border-style: ridge;
+    border-color: #FF8000;
+    border-width: 4pt;
+}
+
+.sectionUniversity{
+    float: right;
+    margin-right: 2cm;
+    width: 11cm;
+    height:11cm;
+    border: solid;
+    padding: 25px;
+    font-size: 14pt; 
+    border-style: ridge;
+    border-color: #FF8000;
+    border-width: 4pt;
+}
+.logoimage{
+    height:5.5cm;
+    width:5cm;
+    margin-right: 17cm;
+}
+.loginimage{
+    width: 100px;
+    height: 100px;
+}
+.signupimage{
+    width: 110px;
+    height: 110px;
+}
+
+.forgotPasswordStudent{
+    font-style: italic;
+     font-size: 10pt;
+}
+.forgotPasswordUniversity{
+    font-style: italic;
+     font-size: 10pt;
+}
+
+.studentForm{
+    text-align: center;
+}
+.universityForm{
+    text-align: center;
+}
+
+.aboutUs{
+    text-align: right;
+    font-size: 14pt;
+}
+
+.linked{
+    text-align: left;
+}
+
+ #map_canvas { 
+     height: 100%;
+     border:1px solid black; 
+     margin: auto;
+     //padding: 40px;
+     //float: right;
+}
+
+.map_image{
+    border: solid;
+    width: 300px;
+    height: 100%;
+    margin-right: 25px;
+    background-color: white;
+    border: solid; 
+    padding: 25px;
+    float : right;
+
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+      PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+       <title>Registration Success!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <style type="text/css">
+                .navbar{
+                        margin-top: 20px;
+                }
+        </style>
+    </h:head>
+    
+ <h:body>
+     
+     <h:form>
+<div class="container">
+    <nav role="navigation" class="navbar navbar-inverse">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="linkedUHome.xhtml" class="navbar-brand">LinkedU</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            
+            
+            
+        </div>
+        
+    </nav>
+</div>
+            </h:form>
+     
+     
+     
+     
+     
+     
+     
+     
+    <h:form>
+        <div class="container">
+            <h3><b>
+        <h:outputText id="result" escape="false" value="#{universitySignUpController.response}"/>
+    </b></h3>
+        <h:commandButton id="home" class="btn btn-info btn-lg" value="Home" action="#{logoutBean.logout()}"/>
+        </div>
+    </h:form>
+</h:body>
+</html>

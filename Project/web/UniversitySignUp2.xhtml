@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      
+    <h:head>
+        <title>University Sign Up</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+        
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+       
+     
+    </h:head>
+    <h:body>
+        
+        
+        <h:form>
+<div class="container">
+    <nav role="navigation" class="navbar navbar-inverse">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="linkedUHome.xhtml" class="navbar-brand">LinkedU</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="disabled"><a href="#">Profile</a></li>
+                
+                <li class="disabled"> <h:commandLink value="Update Profile"  action="#{updateController.retrieveProfilePart1()}"/></li>
+                
+                
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">More <b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li class="disabled"><a href="#" >Schedule an appointment</a></li>
+                         
+                         <li> <h:commandLink id="search" value="Search the University" action="universitySearchPage.xhtml"/></li>
+                        <li class="divider"></li>
+                        <li><h:commandLink id="searchStudent" value="Search Students" action="searchStudent.xhtml"/></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li> <h:commandLink value="Logout" action="#{logoutBean.logout()}" /></li>
+            </ul>
+        </div>
+        
+    </nav>
+</div>
+            </h:form>
+        
+    
+    
+    
+    <h2 align="center">University Details</h2><br/>
+        
+            
+            
+            
+            
+    <h:form>
+        
+                <div class="container">
+                        <div class="form-group">
+            <br/>
+            <label class="control-label col-sm-2" for="about"> About University: </label>
+            
+            <h:inputTextarea id="about" value="#{universitySignUpController.theModel.aboutUniversity}" required="true">
+                 <f:validateLength minimum="2" maximum="25" />
+            </h:inputTextarea> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="courses">Courses Offered:</label>
+            <h:selectManyCheckbox  id="courses" value="#{universitySignUpController.theModel.selectedCourses}"  required="true">
+            <f:selectItems value="#{universitySignUpController.theModel.courses}" var="course" itemLabel="#{courses}" itemValue="#{courses}" />
+            </h:selectManyCheckbox > <br/><br/>
+            
+                        
+            <label class="control-label col-sm-2" for="Tuition"> Tuition Fees in $ </label>
+            <h:inputText id="Tuition" value="#{universitySignUpController.theModel.fees}" required="true">/>   
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="AcceptR">Acceptance Rate % </label>
+            <h:inputText id="AcceptR" value="#{universitySignUpController.theModel.accptRate}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="AcceptR">Scholarship Rate % </label>
+            <h:inputText id="SchR" value="#{universitySignUpController.theModel.scRate}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="password2">Admission Requirement(Min score required):</label>
+           
+              <h:panelGrid columns="2" columnClasses="column" cellpadding="5">
+              <label class="control-label col-sm-2" for="ACT">ACT Score</label>
+              <h:inputText id = "ACT" value="#{universitySignUpController.theModel.ACTScore}"  />
+              <label class="control-label col-sm-2" for="SAT">SAT Score</label>
+              <h:inputText id ="SAT" value="#{universitySignUpController.theModel.SATScore}"  />
+              </h:panelGrid> 
+            
+            <br/>
+            <h:commandButton id="submitID" class="btn btn-info btn-lg" value="Submit" action="#{universitySignUpController.createProfile()}"/>
+                    </div>
+                
+            </div>
+        
+
+            </h:form>
+    
+    
+    </h:body>
+</html>
+

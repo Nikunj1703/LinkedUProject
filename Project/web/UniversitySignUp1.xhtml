@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+      
+    <h:head>
+        <title>University Sign Up</title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+        
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+       
+     
+    </h:head>
+    <h:body>
+        
+        
+        <h:form>
+<div class="container">
+    <nav role="navigation" class="navbar navbar-inverse">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="linkedUHome.xhtml" class="navbar-brand">LinkedU</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="disabled"><a href="#">Profile</a></li>
+                
+                <li class="disabled"> <h:commandLink value="Update Profile"  action="#{updateController.retrieveProfilePart1()}"/></li>
+                
+                
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">More <b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li class="disabled"><a href="#" >Schedule an appointment</a></li>
+                         
+                         <li> <h:commandLink id="search" value="Search the University" action="universitySearchPage.xhtml"/></li>
+                        <li class="divider"></li>
+                        <li><h:commandLink id="searchStudent" value="Search Students" action="searchStudent.xhtml"/></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li> <h:commandLink value="Logout" action="#{logoutBean.logout()}" /></li>
+            </ul>
+        </div>
+        
+    </nav>
+</div>
+            </h:form>
+        
+    
+    
+    
+    <h2 align="center">University Sign Up </h2><br/>
+        
+            
+            
+            
+            
+    <h:form>
+        
+                <div class="container">
+                        <div class="form-group">
+            <br/>
+            <label class="control-label col-sm-2" for="name">University Name: </label>
+            
+            <h:inputText id="name" value="#{universitySignUpController.theModel.name}" required="true">
+                 <f:validateLength minimum="2" maximum="25" />
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="emailID">Email:</label>
+            <h:inputText id="emailID" value="#{universitySignUpController.theModel.email}"  required="true">
+            </h:inputText> <br/><br/>
+            
+                        
+            
+            
+            <label class="control-label col-sm-2" for="password">Password:</label>
+            <h:inputSecret redisplay="false" id="password" value="#{universitySignUpController.theModel.password}"  required="true">
+            </h:inputSecret> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="password2">Confirm Password:</label>
+            <h:inputSecret redisplay="false" id="password2" value="#{universitySignUpController.theModel.password2}"  required="true">
+            </h:inputSecret> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="contact">Contact Number:</label>
+            <h:inputText id="contact" value="#{universitySignUpController.theModel.contact}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="addr1">Address Line1:</label>
+            <h:inputText id="addr1" value="#{universitySignUpController.theModel.addr1}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="addr2">Address Line2:</label>
+            <h:inputText id="addr2" value="#{universitySignUpController.theModel.addr2}" >
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="City">City:</label>
+            <h:inputText id="City" value="#{universitySignUpController.theModel.city}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="State">State:</label>
+            <h:inputText id="State" value="#{universitySignUpController.theModel.state}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="country">Country:</label>
+            <h:inputText id="country" value="#{universitySignUpController.theModel.country}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            
+            <label class="control-label col-sm-2" for="zipcode">Zip Code:</label>
+            <h:inputText id="zipcode" value="#{universitySignUpController.theModel.zipcode}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            <br/>
+            <h:commandButton id="MoreDetails" class="btn btn-info btn-lg" value="Next" action="UniversitySignUp2.xhtml"/>
+                    </div>
+                
+            </div>
+        
+
+            </h:form>
+    
+    
+    </h:body>
+</html>
+

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+    <h:head>
+        <title>Update University Profile</title>
+         
+    </h:head>
+    
+    
+    <h:body>
+        
+        
+         
+        
+        
+        <h2 align="center">Update Your Information</h2><br/>
+        <h:form>
+            
+         
+            
+            Name:
+            <h:inputText id="NameID" value="#{updateController.universitySignUpBean.name}"  disabled = "true">
+                 <f:validateLength minimum="2" maximum="75" />
+            </h:inputText> <br/><br/>
+            
+           
+            About:
+            <h:inputTextarea id="about" value="#{updateController.universitySignUpBean.aboutUniversity}"  required="true">
+            </h:inputTextarea> <br/><br/>
+           
+            <br/><br/>
+            Fees:
+            <h:inputTextarea id="fee" value="#{updateController.universitySignUpBean.fees}"  required="true">
+            </h:inputTextarea> <br/><br/>
+            
+            Acceptance Rate:
+            <h:inputTextarea id="aRate" value="#{updateController.universitySignUpBean.accptRate}"  required="true">
+            </h:inputTextarea> <br/><br/>
+            
+            Scholarship Rate:
+            <h:inputTextarea id="sRate" value="#{updateController.universitySignUpBean.scRate}"  required="true">
+            </h:inputTextarea> <br/><br/>
+            
+            ACT Score:
+            <h:inputTextarea id="act" value="#{updateController.universitySignUpBean.ACTScore}"  required="true">
+            </h:inputTextarea> <br/><br/>
+            
+            SAT Score:
+            <h:inputTextarea id="sat" value="#{updateController.universitySignUpBean.SATScore}"  required="true">
+            </h:inputTextarea> <br/><br/>
+            
+            
+            
+           
+            
+            <h:commandButton id="update" class="btn btn-info btn-lg" value="Update Profile" action="#{updateController.updateUniversityProfile()}"/>
+                        
+            
+            
+        </h:form>
+
+    </h:body>
+</html>
+

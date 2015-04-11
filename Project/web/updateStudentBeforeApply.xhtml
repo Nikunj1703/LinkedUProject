@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+      
+    <h:head>
+        <title>Update Profile</title>
+         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></link>
+        
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+          <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    </h:head>
+    
+    
+    <h:body>
+        
+        
+         <h:form>
+<div class="container">
+    <nav role="navigation" class="navbar navbar-inverse">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="linkedUHome.xhtml" class="navbar-brand">LinkedU</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="LoginGood.xhtml">Profile</a></li>
+                
+                <li> <h:commandLink value="Update Profile" action="#{updateController.retrieveProfilePart1()}"/></li>
+                
+                
+                <li class="dropdown">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">More <b class="caret"></b></a>
+                    <ul role="menu" class="dropdown-menu">
+                        <li><a href="#">Schedule an appointment</a></li>
+                         
+                         <li> <h:commandLink id="search" value="Search the University" action="universitySearchPage.xhtml"/></li>
+                        <li class="divider"></li>
+                        <li><h:commandLink id="searchStudent" value="Search Students" action="searchStudent.xhtml"/></li>
+                    </ul>
+                </li>
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li> <h:commandLink value="Logout" action="#{logoutBean.logout()}" /></li>
+            </ul>
+        </div>
+        
+    </nav>
+</div>
+            </h:form>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <h2 align="center">Update Your Information and Proceed to Apply</h2><br/>
+        <h:form>
+            
+            <div class="container">
+                        <div class="form-group">
+            <br/>
+            
+            <label class="control-label col-sm-2" for="fNameID">First Name:</label>
+             <h:inputText id="fNameID" value="#{updateController.studentBean.firstName}"  disabled = "true">
+                 <f:validateLength minimum="2" maximum="25" />
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="lNameID">Last Name:</label>
+             <h:inputText id="lNameID" value="#{updateController.studentBean.lastName}"  disabled = "true">
+                <f:validateLength minimum="2" maximum="25" />   
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="emailID">Email:</label>
+             <h:inputText id="emailID" value="#{updateController.studentBean.email}" disabled = "true">
+            </h:inputText> <br/><br/>
+            
+           
+            <br/><br/>
+            <label class="control-label col-sm-2" for="contactNo">Phone Number:</label>
+             <h:inputText id="contactNo" value="#{updateController.studentBean.contactNo}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="address1">Address Line1:</label>
+             <h:inputText id="address1" value="#{updateController.studentBean.address1}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="address2">Address Line2:</label>
+             <h:inputText id="address2" value="#{updateController.studentBean.address2}" >
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="city">City:</label>
+             <h:inputText id="city" value="#{updateController.studentBean.city}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="state">State:</label>
+            <h:inputText id="state" value="#{updateController.studentBean.state}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="country">Country:</label>
+            <h:inputText id="country" value="#{updateController.studentBean.country}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="zip">Zip:</label>
+             <h:inputText id="zip" value="#{updateController.studentBean.zip}" required="true" >
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="schoolName">School Name:</label>
+             <h:inputText id="schoolName" value="#{updateController.studentBean.schoolName}" required="true">
+                 <f:validateLength minimum="2" maximum="25" />
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="gpa">GPA:</label>
+             <h:inputText id="gpa" value="#{updateController.studentBean.gpa}" required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="exam">Exam:</label>
+             <h:selectOneMenu
+                id="exam"
+                value="#{updateController.studentBean.exam}">
+                <f:selectItem id="act" itemLabel="ACT" itemValue="ACT" />
+                <f:selectItem id="sat" itemLabel="SAT" itemValue="SAT" />
+            </h:selectOneMenu><br/><br/>
+            
+            <label class="control-label col-sm-2" for="score">Score:</label>
+             <h:inputText id="score" value="#{updateController.studentBean.score}" required="true">
+            </h:inputText>
+            <br/><br/>
+            
+                     
+            
+            
+            <label class="control-label col-sm-2" for="major">Major:</label>
+             <h:selectManyCheckbox
+                id="major"
+                value="#{updateController.studentBean.major}">
+                <f:selectItem id="cse" itemLabel="CSE" itemValue="CSE" />
+                <f:selectItem id="it" itemLabel="IT" itemValue="IT" />
+            </h:selectManyCheckbox><br/><br/>
+            
+            
+            
+            
+            <label class="control-label col-sm-2" for="extraC">Extra-Curricular:</label>
+             <h:inputText id="extraC" value="#{updateController.studentBean.extraC}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="awards">Awards:</label>
+             <h:inputText id="awards" value="#{updateController.studentBean.awards}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <label class="control-label col-sm-2" for="sports">Sports:</label>
+             <h:inputText id="sports" value="#{updateController.studentBean.sports}"  required="true">
+            </h:inputText> <br/><br/>
+            
+            <br/>
+            <h:commandButton id="educationID" class="btn btn-info btn-lg" value="Update Profile" action="#{updateController.saveStudentUpdate()}"/>
+            
+                        </div>
+            </div>
+        </h:form>
+
+    </h:body>
+</html>
+
